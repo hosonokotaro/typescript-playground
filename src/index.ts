@@ -22,13 +22,13 @@ const data: TeamMember[] = [
   {
     id: 3,
     name: 'tanaka',
-    position: 'Employee',
+    position: 'Chief',
   },
 ];
 
-const showTeamMember = (data: TeamMember[]) => {
-  data.map((member) => {
-    console.log(member);
+const showTeamMember = (memberList: TeamMember[]) => {
+  memberList.map(({ id, name, position }) => {
+    console.log(`id: ${id} | name: ${name} | position: ${position}`);
   });
 };
 
