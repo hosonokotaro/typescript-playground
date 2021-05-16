@@ -1,30 +1,4 @@
-// Sample code
-
-type Position = 'Manager' | 'Chief' | 'Employee';
-
-interface TeamMember {
-  id: number;
-  name: string;
-  position: Position;
-}
-
-const data: TeamMember[] = [
-  {
-    id: 1,
-    name: 'yamada',
-    position: 'Manager',
-  },
-  {
-    id: 2,
-    name: 'suzuki',
-    position: 'Employee',
-  },
-  {
-    id: 3,
-    name: 'tanaka',
-    position: 'Chief',
-  },
-];
+import { data, TeamMember } from './data';
 
 const showTeamMember = (memberList: TeamMember[]) => {
   memberList.map(({ id, name, position }) => {
