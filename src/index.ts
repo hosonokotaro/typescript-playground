@@ -1,9 +1,14 @@
 import { data, TeamMember } from './data';
+import { data as data2, SupportMember } from './data2';
 
-const showTeamMember = (memberList: TeamMember[]) => {
-  memberList.map(({ id, name, position }) => {
-    console.log(`id: ${id} | name: ${name} | position: ${position}`);
+// NOTE: Union type として引数を受け付ける
+const showTeamMember = <T extends TeamMember | SupportMember>(
+  memberList: T[]
+) => {
+  memberList.map(({ id, name }) => {
+    console.log(`id: ${id} | name: ${name}`);
   });
 };
 
 showTeamMember(data);
+showTeamMember(data2);
