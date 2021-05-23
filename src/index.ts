@@ -35,12 +35,20 @@ showManyList([
 
 // NOTE: Object.keys に null, undefined を渡すと Error、string を渡すと文字数が返ってくる
 // symbol, number は [] が返ってくる。array は index が返ってくる
-const showKeys = (props: object) => {
-  const value = Object.keys(props);
-  console.log(value.length);
+
+interface KeyCount {
+  test1: number;
+  test2: {
+    test3: number;
+    test4?: string;
+  };
+}
+
+// NOTE: T extends KeyCount を指定することで下記のエラーを回避できる
+const showKeyCount = <T>(props: T) => {
+  const length = Object.keys(props).length;
+  console.log(length);
 };
 
-showKeys({ test1: 0, test2: { test3: 2, test4: 3 } });
-
-console.log({} === {});
-console.log(null === null);
+showKeyCount({ test1: 'aaa', test2: 'bbb' }); // OK
+// showKeyCount(null); // error
