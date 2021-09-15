@@ -14,3 +14,5 @@ npm run build
 // src/**/*.ts を format します
 npm run prettier
 ```
+
+node.js のバージョンは nodenv を利用して管理しているので `.node-version` ファイルに設定が記載されています。
