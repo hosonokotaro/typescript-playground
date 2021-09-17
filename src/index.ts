@@ -1,9 +1,25 @@
-import { data, TeamMember } from './data';
+interface Product {
+  name: string;
+  path?: string;
+  price: number;
+  inventoryCount?: number;
+}
 
-const showTeamMember = (memberList: TeamMember[]) => {
-  memberList.map(({ id, name, position }) => {
-    console.log(`id: ${id} | name: ${name} | position: ${position}`);
-  });
-};
+type ProductItem = Pick<Product, 'name' | 'price' | 'path'>;
 
-showTeamMember(data);
+const productList: ProductItem[] = [
+  {
+    name: 'product-a',
+    price: 3800,
+  },
+  {
+    name: 'product-b',
+    price: 2200,
+    path: 'images/prodct-b',
+  },
+];
+
+productList.map((item) => {
+  console.log(item.name);
+});
+
